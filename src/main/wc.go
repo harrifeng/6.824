@@ -1,6 +1,9 @@
 package main
 
-import "os"
+import (
+	"os"
+	"strings"
+)
 import "fmt"
 import "mapreduce"
 import "container/list"
@@ -9,6 +12,13 @@ import "container/list"
 // key to the Map function, as in the paper; only a value,
 // which is a part of the input file contents
 func Map(value string) *list.List {
+
+	head := list.New()
+	tmp = head
+	for k, v := range strings.SplitAfter(value, " ") {
+		head.PushBack(v)
+	}
+	return head
 }
 
 // iterate over list and add values
